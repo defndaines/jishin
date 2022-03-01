@@ -11,7 +11,11 @@ defmodule Jishin.QuakeMonitor do
   @period 60_000
 
   def start_link(subscribers) do
-    GenServer.start_link(__MODULE__, %{subscribers: subscribers}, name: __MODULE__)
+    GenServer.start_link(
+      __MODULE__,
+      %{subscribers: subscribers, quake_ids: []},
+      name: __MODULE__
+    )
   end
 
   @impl GenServer

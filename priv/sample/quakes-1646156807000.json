@@ -1,0 +1,370 @@
+{ "type": "FeatureCollection"
+, "metadata":
+  { "generated": 1646156807000
+  , "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_hour.geojson"
+  , "title": "USGS Magnitude 1.0+ Earthquakes, Past Hour"
+  , "status": 200
+  , "api": "1.10.3"
+  , "count": 10
+  }
+, "features":
+  [ { "type": "Feature"
+    , "properties":
+      { "mag": 2.07
+      , "place": "17 km WNW of Volcano, Hawaii"
+      , "time": 1646156352580
+      , "updated": 1646156683850
+      , "tz": null
+      , "url": "https://earthquake.usgs.gov/earthquakes/eventpage/hv72933957"
+      , "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/hv72933957.geojson"
+      , "felt": null
+      , "cdi": null
+      , "mmi": null
+      , "alert": null
+      , "status": "automatic"
+      , "tsunami": 0
+      , "sig": 66
+      , "net": "hv"
+      , "code": "72933957"
+      , "ids": ",hv72933957,"
+      , "sources": ",hv,"
+      , "types": ",origin,phase-data,"
+      , "nst": 26
+      , "dmin": null
+      , "rms": 0.25
+      , "gap": 54
+      , "magType": "ml"
+      , "type": "earthquake"
+      , "title": "M 2.1 - 17 km WNW of Volcano, Hawaii"
+      }
+    , "geometry":
+      { "type": "Point"
+      , "coordinates": [ -155.398666381836 , 19.4773330688477 , -1.63999998569489 ]
+      }
+    , "id": "hv72933957"
+    }
+  , { "type": "Feature"
+    , "properties":
+      { "mag": 1
+      , "place": "7 km E of Eielson Air Force Base, Alaska"
+      , "time": 1646156342016
+      , "updated": 1646156608553
+      , "tz": null
+      , "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ak0222rilk0c"
+      , "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/ak0222rilk0c.geojson"
+      , "felt": null
+      , "cdi": null
+      , "mmi": null
+      , "alert": null
+      , "status": "automatic"
+      , "tsunami": 0
+      , "sig": 15
+      , "net": "ak"
+      , "code": "0222rilk0c"
+      , "ids": ",ak0222rilk0c,"
+      , "sources": ",ak,"
+      , "types": ",origin,"
+      , "nst": null
+      , "dmin": null
+      , "rms": 0.34
+      , "gap": null
+      , "magType": "ml"
+      , "type": "earthquake"
+      , "title": "M 1.0 - 7 km E of Eielson Air Force Base, Alaska"
+      }
+    , "geometry":
+      { "type": "Point"
+      , "coordinates": [ -146.9003 , 64.6621 , 7.1 ]
+      }
+    , "id": "ak0222rilk0c"
+    }
+  , { "type": "Feature"
+    , "properties":
+      { "mag": 1.85000002
+      , "place": "1 km E of P\u0101hala, Hawaii"
+      , "time": 1646155951020
+      , "updated": 1646156156520
+      , "tz": null
+      , "url": "https://earthquake.usgs.gov/earthquakes/eventpage/hv72933947"
+      , "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/hv72933947.geojson"
+      , "felt": null
+      , "cdi": null
+      , "mmi": null
+      , "alert": null
+      , "status": "automatic"
+      , "tsunami": 0
+      , "sig": 53
+      , "net": "hv"
+      , "code": "72933947"
+      , "ids": ",hv72933947,"
+      , "sources": ",hv,"
+      , "types": ",origin,phase-data,"
+      , "nst": 39
+      , "dmin": null
+      , "rms": 0.129999995
+      , "gap": 102
+      , "magType": "md"
+      , "type": "earthquake"
+      , "title": "M 1.9 - 1 km E of P\u0101hala, Hawaii"
+      }
+    , "geometry":
+      { "type": "Point"
+      , "coordinates": [ -155.464004516602 , 19.2036666870117 , 35.1199989318848 ]
+      }
+    , "id": "hv72933947"
+    }
+  , { "type": "Feature"
+    , "properties":
+      { "mag": 1.5
+      , "place": "50 km N of Chase, Alaska"
+      , "time": 1646155583239
+      , "updated": 1646156508117
+      , "tz": null
+      , "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ak0222riitba"
+      , "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/ak0222riitba.geojson"
+      , "felt": null
+      , "cdi": null
+      , "mmi": null
+      , "alert": null
+      , "status": "automatic"
+      , "tsunami": 0
+      , "sig": 35
+      , "net": "ak"
+      , "code": "0222riitba"
+      , "ids": ",ak0222riitba,"
+      , "sources": ",ak,"
+      , "types": ",origin,"
+      , "nst": null
+      , "dmin": null
+      , "rms": 0.46
+      , "gap": null
+      , "magType": "ml"
+      , "type": "earthquake"
+      , "title": "M 1.5 - 50 km N of Chase, Alaska"
+      }
+    , "geometry":
+      { "type": "Point"
+      , "coordinates": [ -150.2327 , 62.8995 , 87.6 ]
+      }
+    , "id": "ak0222riitba"
+    }
+  , { "type": "Feature"
+    , "properties":
+      { "mag": 1.9
+      , "place": "24 km NW of Sutton-Alpine, Alaska"
+      , "time": 1646154886510
+      , "updated": 1646155175224
+      , "tz": null
+      , "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ak0222rigai3"
+      , "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/ak0222rigai3.geojson"
+      , "felt": null
+      , "cdi": null
+      , "mmi": null
+      , "alert": null
+      , "status": "automatic"
+      , "tsunami": 0
+      , "sig": 56
+      , "net": "ak"
+      , "code": "0222rigai3"
+      , "ids": ",ak0222rigai3,"
+      , "sources": ",ak,"
+      , "types": ",origin,"
+      , "nst": null
+      , "dmin": null
+      , "rms": 0.85
+      , "gap": null
+      , "magType": "ml"
+      , "type": "earthquake"
+      , "title": "M 1.9 - 24 km NW of Sutton-Alpine, Alaska"
+      }
+    , "geometry":
+      { "type": "Point"
+      , "coordinates": [ -149.0587 , 61.9426 , 30.5 ]
+      }
+    , "id": "ak0222rigai3"
+    }
+  , { "type": "Feature"
+    , "properties":
+      { "mag": 1.3
+      , "place": "55 km W of Ferry, Alaska"
+      , "time": 1646154442551
+      , "updated": 1646154853814
+      , "tz": null
+      , "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ak0222rieqnz"
+      , "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/ak0222rieqnz.geojson"
+      , "felt": null
+      , "cdi": null
+      , "mmi": null
+      , "alert": null
+      , "status": "automatic"
+      , "tsunami": 0
+      , "sig": 26
+      , "net": "ak"
+      , "code": "0222rieqnz"
+      , "ids": ",ak0222rieqnz,"
+      , "sources": ",ak,"
+      , "types": ",origin,"
+      , "nst": null
+      , "dmin": null
+      , "rms": 0.72
+      , "gap": null
+      , "magType": "ml"
+      , "type": "earthquake"
+      , "title": "M 1.3 - 55 km W of Ferry, Alaska"
+      }
+    , "geometry":
+      { "type": "Point"
+      , "coordinates": [ -150.2447 , 63.9874 , 16.3 ]
+      }
+    , "id": "ak0222rieqnz"
+    }
+  , { "type": "Feature"
+    , "properties":
+      { "mag": 2.1
+      , "place": "21km S of San Pedro, CA"
+      , "time": 1646153812710
+      , "updated": 1646154040919
+      , "tz": null
+      , "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci40197112"
+      , "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/ci40197112.geojson"
+      , "felt": null
+      , "cdi": null
+      , "mmi": null
+      , "alert": null
+      , "status": "automatic"
+      , "tsunami": 0
+      , "sig": 68
+      , "net": "ci"
+      , "code": "40197112"
+      , "ids": ",ci40197112,"
+      , "sources": ",ci,"
+      , "types": ",nearby-cities,origin,phase-data,scitech-link,"
+      , "nst": 33
+      , "dmin": 0.167
+      , "rms": 0.23
+      , "gap": 109
+      , "magType": "ml"
+      , "type": "earthquake"
+      , "title": "M 2.1 - 21km S of San Pedro, CA"
+      }
+    , "geometry":
+      { "type": "Point"
+      , "coordinates": [ -118.267334 , 33.5466652 , -0.14 ]
+      }
+    , "id": "ci40197112"
+    }
+  , { "type": "Feature"
+    , "properties":
+      { "mag": 2.67
+      , "place": "5km SSW of Lexington Hills, CA"
+      , "time": 1646153472210
+      , "updated": 1646156563803
+      , "tz": null
+      , "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc73699581"
+      , "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/nc73699581.geojson"
+      , "felt": 79
+      , "cdi": 3
+      , "mmi": null
+      , "alert": null
+      , "status": "automatic"
+      , "tsunami": 0
+      , "sig": 133
+      , "net": "nc"
+      , "code": "73699581"
+      , "ids": ",nc73699581,"
+      , "sources": ",nc,"
+      , "types": ",dyfi,focal-mechanism,nearby-cities,origin,phase-data,scitech-link,"
+      , "nst": 72
+      , "dmin": 0.04685
+      , "rms": 0.13
+      , "gap": 84
+      , "magType": "md"
+      , "type": "earthquake"
+      , "title": "M 2.7 - 5km SSW of Lexington Hills, CA"
+      }
+    , "geometry":
+      { "type": "Point"
+      , "coordinates": [ -121.9976654 , 37.1264992 , 14.68 ]
+      }
+    , "id": "nc73699581"
+    }
+  , { "type": "Feature"
+    , "properties":
+      { "mag": 1.5
+      , "place": "16 km ENE of Whittier, Alaska"
+      , "time": 1646153326235
+      , "updated": 1646154443006
+      , "tz": null
+      , "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ak0222ri258v"
+      , "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/ak0222ri258v.geojson"
+      , "felt": null
+      , "cdi": null
+      , "mmi": null
+      , "alert": null
+      , "status": "automatic"
+      , "tsunami": 0
+      , "sig": 35
+      , "net": "ak"
+      , "code": "0222ri258v"
+      , "ids": ",ak0222ri258v,"
+      , "sources": ",ak,"
+      , "types": ",origin,"
+      , "nst": null
+      , "dmin": null
+      , "rms": 0.68
+      , "gap": null
+      , "magType": "ml"
+      , "type": "earthquake"
+      , "title": "M 1.5 - 16 km ENE of Whittier, Alaska"
+      }
+    , "geometry":
+      { "type": "Point"
+      , "coordinates": [ -148.4368 , 60.8548 , 19 ]
+      }
+    , "id": "ak0222ri258v"
+    }
+  , { "type": "Feature"
+    , "properties":
+      { "mag": 1.72
+      , "place": "20km SE of Yosemite Valley, CA"
+      , "time": 1646153227650
+      , "updated": 1646156710959
+      , "tz": null
+      , "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc73699576"
+      , "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/nc73699576.geojson"
+      , "felt": null
+      , "cdi": null
+      , "mmi": null
+      , "alert": null
+      , "status": "reviewed"
+      , "tsunami": 0
+      , "sig": 46
+      , "net": "nc"
+      , "code": "73699576"
+      , "ids": ",nc73699576,"
+      , "sources": ",nc,"
+      , "types": ",nearby-cities,origin,phase-data,scitech-link,"
+      , "nst": 7
+      , "dmin": 0.3037
+      , "rms": 0.46
+      , "gap": 213
+      , "magType": "md"
+      , "type": "earthquake"
+      , "title": "M 1.7 - 20km SE of Yosemite Valley, CA"
+      }
+    , "geometry":
+      { "type": "Point"
+      , "coordinates": [ -119.4028333 , 37.6228333 , 25.15 ]
+      }
+    , "id": "nc73699576"
+    }
+  ]
+, "bbox":
+  [ -155.4640045166
+  , 19.203666687012
+  , -1.6399999856949
+  , -118.267334
+  , 64.6621
+  , 87.6
+  ]
+}

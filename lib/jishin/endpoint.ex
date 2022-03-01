@@ -8,7 +8,7 @@ defmodule Jishin.Endpoint do
   plug(Plug.Logger)
   plug(:match)
   # Plaing after :match to ensure JSON parsing only after route match.
-  plug(Plug.Parsers, parsers: [:json], json_decoder: Poison)
+  plug(Plug.Parsers, parsers: [:json], json_decoder: Jason)
   plug(:dispatch)
 
   get "/health" do

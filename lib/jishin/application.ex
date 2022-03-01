@@ -16,7 +16,8 @@ defmodule Jishin.Application do
         scheme: :http,
         plug: Jishin.Endpoint,
         options: [port: Application.get_env(:jishin, :port, 4000)]
-      )
+      ),
+      Jishin.USGSClient.child_spec()
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

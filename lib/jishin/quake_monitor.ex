@@ -7,13 +7,15 @@ defmodule Jishin.QuakeMonitor do
 
   alias Jishin.USGSClient
 
+  defstruct subscribers: [], quake_ids: []
+
   # Run once per minute (in milliseconds).
   @period 60_000
 
   def start_link(subscribers) do
     GenServer.start_link(
       __MODULE__,
-      %{subscribers: subscribers, quake_ids: []},
+      %__MODULE__{subscribers: subscribers, quake_ids: []},
       name: __MODULE__
     )
   end

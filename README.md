@@ -1,21 +1,13 @@
 # Jishin
 
-**TODO: Add description**
+An earthquake monitoring system, which queries the USGS for recent
+earthquakes and notifies subscribers of new activity.
 
-## Installation
+## Usage
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `jishin` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:jishin, "~> 0.1.0"}
-  ]
-end
+At this time, the project is only set up to be run in development. You can use
+```shell
+mix run --no-halt
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/jishin>.
-
+to start up there server. It will serve at http://localhost:4000 , though the
+port can be modified in the [config](config/dev.exs) if desired.

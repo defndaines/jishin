@@ -22,4 +22,8 @@ defmodule Jishin.USGSClient do
       error -> error
     end
   end
+
+  # Some alternative responses:
+  #   {:error, %Mint.TransportError{reason: :timeout}}
+  defp handle_response({:error, reason}), do: {:error, reason}
 end

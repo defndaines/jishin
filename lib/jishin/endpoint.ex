@@ -15,6 +15,12 @@ defmodule Jishin.Endpoint do
     send_resp(conn, 200, "OK")
   end
 
+  post "/test-notify" do
+    IO.inspect(conn.body_params, label: :body)
+    # credo:disable-for-previous-line
+    send_resp(conn, 200, "OK")
+  end
+
   match _ do
     send_resp(conn, 404, "Not Found")
   end

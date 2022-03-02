@@ -27,6 +27,8 @@ defmodule Jishin.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:jason, "~> 1.3"},
       {:finch, "~> 0.10"},
+      {:tesla, "~> 1.4"},
+      {:hackney, "~> 1.17"},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:mix_test_watch, "~> 1.0", only: [:dev, :test], runtime: false}
     ]

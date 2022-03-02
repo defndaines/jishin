@@ -5,6 +5,7 @@ defmodule Jishin.QuakeMonitor do
 
   use GenServer
 
+  alias Jishin.Notifier
   alias Jishin.USGSClient
 
   defstruct subscribers: [], quake_ids: []
@@ -34,6 +35,15 @@ defmodule Jishin.QuakeMonitor do
     {unique_events, new_events} = new_events(quakes, state)
 
     # Notify any subscribers
+    case new_events do
+      [] ->
+        :ok
+
+      events ->
+        for subscription <- state.subscribers do
+          Notifier.notify(subscription, events)
+        end
+    end
 
     # Schedule next check
     schedule_check()

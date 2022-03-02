@@ -37,6 +37,19 @@ defmodule Jishin.Notifier do
     {:noreply, state}
   end
 
+  @doc """
+  Get all events that match the subscription filters.
+  """
+  def matching(%{"filters" => []}, events), do: events
+
+  def matching(%{"filters" => filters}, events) do
+    Enum.filter(events, fn event ->
+      Enum.all?(filters, fn filter -> match_filter?(filter, event) end)
+    end)
+  end
+
+  def matching(_, events), do: events
+
   # POST a single event as JSON to an endpoint.
   defp post_event(endpoint, event) do
     case post(endpoint, event) do
@@ -44,4 +57,14 @@ defmodule Jishin.Notifier do
       {:error, reason} -> Logger.warn("issue making request: #{inspect(reason)}")
     end
   end
+
+  # Only handling magnitude minimum.
+  defp match_filter?(
+         %{"type" => "magnitude", "minimum" => minimum},
+         %{"properties" => %{"mag" => mag}}
+       ) do
+    mag >= minimum
+  end
+
+  defp match_filter?(_, _), do: false
 end

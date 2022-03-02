@@ -7,12 +7,19 @@ defmodule Jishin.Endpoint do
 
   plug(Plug.Logger)
   plug(:match)
-  # Plaing after :match to ensure JSON parsing only after route match.
+  # Placing after :match to ensure JSON parsing only after route match.
   plug(Plug.Parsers, parsers: [:json], json_decoder: Jason)
   plug(:dispatch)
 
   get "/health" do
     send_resp(conn, 200, "OK")
+  end
+
+  post "/subscribe" do
+    case Jishin.QuakeMonitor.subscribe(conn.body_params) do
+      :ok -> send_resp(conn, 200, "OK")
+      {:error, _} -> send_resp(conn, 400, "Bad Request")
+    end
   end
 
   post "/test-notify" do

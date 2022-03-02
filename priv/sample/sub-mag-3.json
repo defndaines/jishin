@@ -1,0 +1,7 @@
+{ "endpoint": "http://127.0.0.1:4000/test-notify"
+, "filters":
+  [ { "type": "magnitude"
+    , "minimum": 3.0
+    }
+  ]
+}

@@ -29,8 +29,8 @@ defmodule Jishin.Notifier do
   def init(state), do: {:ok, state}
 
   @impl GenServer
-  def handle_cast({:notify, %{"endpoint" => endpoint}, events}, state) do
-    for event <- events do
+  def handle_cast({:notify, %{"endpoint" => endpoint} = subscription, events}, state) do
+    for event <- matching(subscription, events) do
       post_event(endpoint, event)
     end
 

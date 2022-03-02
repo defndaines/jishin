@@ -29,7 +29,7 @@ earthquakes. POST a payload like the following:
 Using `curl`:
 ```shell
 curl -XPOST -H 'Content-Type:application/json' \
-  -d @priv/sample/sub-mag-1.json \
+  -d @priv/sample/sub-mag-3.json \
   http://localhost:4000/subscribe
 ```
 

@@ -41,7 +41,7 @@ defmodule Jishin.NotifierTest do
       assert length(Map.keys(scrubbed["properties"])) == 9
 
       assert Map.keys(scrubbed["properties"]) ==
-               ~w(detail mag place time title tsunami geometry updated url)
+               ~w(detail mag place time title tsunami type updated url)
 
       assert scrubbed["id"] == event["id"]
       assert scrubbed["type"] == event["type"]

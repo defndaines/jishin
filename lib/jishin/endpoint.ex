@@ -16,8 +16,10 @@ defmodule Jishin.Endpoint do
   end
 
   post "/subscribe" do
-    case Jishin.QuakeMonitor.subscribe(conn.body_params) do
-      :ok -> send_resp(conn, 200, "OK")
+    with {:ok, response} <- Jishin.QuakeMonitor.subscribe(conn.body_params),
+         {:ok, body} <- Jason.encode(response) do
+      send_resp(conn, 200, body)
+    else
       {:error, _} -> send_resp(conn, 400, "Bad Request")
     end
   end

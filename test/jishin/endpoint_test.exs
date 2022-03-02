@@ -25,7 +25,9 @@ defmodule Jishin.EndpointTest do
 
     assert conn.state == :sent
     assert conn.status == 200
-    assert conn.resp_body == "OK"
+    assert String.contains?(conn.resp_body, "details")
+    assert String.contains?(conn.resp_body, "start")
+    assert String.contains?(conn.resp_body, "id")
   end
 
   test "400 when bad subscription request" do

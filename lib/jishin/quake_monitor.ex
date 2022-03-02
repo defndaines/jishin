@@ -15,8 +15,18 @@ defmodule Jishin.QuakeMonitor do
 
   def subscribe(%{"endpoint" => _} = subscription) do
     case valid_subscription?(subscription) do
-      true -> GenServer.cast(__MODULE__, {:subscribe, subscription})
-      false -> {:error, "not a valid subscription request"}
+      true ->
+        sub = %{
+          id: UUID.uuid4(),
+          start: DateTime.utc_now() |> DateTime.to_unix(:millisecond),
+          details: subscription
+        }
+
+        GenServer.cast(__MODULE__, {:subscribe, subscription})
+        {:ok, sub}
+
+      false ->
+        {:error, "not a valid subscription request"}
     end
   end
 

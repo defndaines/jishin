@@ -29,6 +29,7 @@ defmodule Jishin.MixProject do
       {:finch, "~> 0.10"},
       {:tesla, "~> 1.4"},
       {:hackney, "~> 1.17"},
+      {:uuid, "~> 1.0"},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:mix_test_watch, "~> 1.0", only: [:dev, :test], runtime: false}
     ]

@@ -25,6 +25,37 @@ defmodule Jishin.QuakeMonitorTest do
     end
   end
 
+  describe "valid_subscription?/1" do
+    test "endpoint is enough" do
+      assert QuakeMonitor.valid_subscription?(%{"endpoint" => "http://localhost"})
+    end
+
+    test "magnitude filter includes 'minimum'" do
+      assert QuakeMonitor.valid_subscription?(%{
+               "endpoint" => "http://localhost",
+               "filters" => [%{"type" => "magnitude", "minimum" => 1.0}]
+             })
+    end
+
+    test "endpoint required" do
+      refute QuakeMonitor.valid_subscription?(%{
+               "filters" => [%{"type" => "magnitude", "minimum" => 1.0}]
+             })
+    end
+
+    test "magnitude filter requires 'type' and 'minimum'" do
+      refute QuakeMonitor.valid_subscription?(%{
+               "endpoint" => "http://localhost",
+               "filters" => [%{"minimum" => 1.0}]
+             })
+
+      refute QuakeMonitor.valid_subscription?(%{
+               "endpoint" => "http://localhost",
+               "filters" => [%{"type" => "magnitude"}]
+             })
+    end
+  end
+
   defp parse_file!(path) do
     path
     |> File.read!()

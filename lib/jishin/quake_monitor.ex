@@ -13,6 +13,15 @@ defmodule Jishin.QuakeMonitor do
   # Run once per minute (in milliseconds).
   @period 60_000
 
+  def subscribe(%{"endpoint" => _} = subscription) do
+    case valid_subscription?(subscription) do
+      true -> GenServer.cast(__MODULE__, {:subscribe, subscription})
+      false -> {:error, "not a valid subscription request"}
+    end
+  end
+
+  def subscribe(_), do: {:error, "not a valid subscription request"}
+
   def start_link(subscribers) do
     GenServer.start_link(
       __MODULE__,
@@ -29,9 +38,7 @@ defmodule Jishin.QuakeMonitor do
 
   @impl GenServer
   def handle_info(:check, state) do
-    # Call USGS
     {:ok, quakes} = USGSClient.get_quakes()
-
     {unique_events, new_events} = new_events(quakes, state)
 
     # Notify any subscribers
@@ -50,6 +57,10 @@ defmodule Jishin.QuakeMonitor do
     {:noreply, %{state | quake_ids: unique_events}}
   end
 
+  def handle_cast({:subscribe, subscription}, %{subscribers: subscribers} = state) do
+    {:noreply, %{state | subscribers: [subscription | subscribers]}}
+  end
+
   @doc """
   Given a list of recent quakes (as returned by `Jishin.USGSClient.get_quakes/0`, check against a
   list of known events, and return a list of all unique event IDs along with the new quake
@@ -63,6 +74,18 @@ defmodule Jishin.QuakeMonitor do
 
     {unique_events, new_events}
   end
+
+  @doc """
+  Validate a subscription request. A subscription must have at least an "endpoint". If it has
+  "filters" defined, they must contain the expected fields.
+  """
+  def valid_subscription?(subscription) do
+    subscription["endpoint"] && Enum.all?(Map.get(subscription, "filters", []), &valid_filter?/1)
+  end
+
+  # Only supporting a magnitude filter at this time.
+  defp valid_filter?(%{"type" => "magnitude", "minimum" => _}), do: true
+  defp valid_filter?(_), do: false
 
   defp schedule_check, do: Process.send_after(self(), :check, @period)
 end

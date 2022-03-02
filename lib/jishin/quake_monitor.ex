@@ -57,6 +57,7 @@ defmodule Jishin.QuakeMonitor do
     {:noreply, %{state | quake_ids: unique_events}}
   end
 
+  @impl GenServer
   def handle_cast({:subscribe, subscription}, %{subscribers: subscribers} = state) do
     {:noreply, %{state | subscribers: [subscription | subscribers]}}
   end

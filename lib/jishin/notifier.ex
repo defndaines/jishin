@@ -50,9 +50,20 @@ defmodule Jishin.Notifier do
 
   def matching(_, events), do: events
 
+  @keep_properties ~w(detail mag place time title tsunami type updated url)
+
+  @doc """
+  Trim down the provided map to only the fields we wish to publish out to subscribers.
+  """
+  def select_fields(event) do
+    %{event | "properties" => Map.take(event["properties"], @keep_properties)}
+  end
+
   # POST a single event as JSON to an endpoint.
   defp post_event(endpoint, event) do
-    case post(endpoint, event) do
+    scrubbed = select_fields(event)
+
+    case post(endpoint, scrubbed) do
       {:ok, %Tesla.Env{status: 200}} -> :ok
       {:error, reason} -> Logger.warn("issue making request: #{inspect(reason)}")
     end

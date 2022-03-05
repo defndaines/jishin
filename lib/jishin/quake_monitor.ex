@@ -11,7 +11,7 @@ defmodule Jishin.QuakeMonitor do
   defstruct subscribers: [], quake_ids: []
 
   # Run once per minute (in milliseconds).
-  @period 60_000
+  @period :timer.minutes(1)
 
   def subscribe(%{"endpoint" => _} = subscription) do
     case valid_subscription?(subscription) do
@@ -98,5 +98,5 @@ defmodule Jishin.QuakeMonitor do
   defp valid_filter?(%{"type" => "magnitude", "minimum" => _}), do: true
   defp valid_filter?(_), do: false
 
-  defp schedule_check, do: Process.send_after(self(), :check, @period)
+  defp schedule_check, do: Process.send_after(__MODULE__, :check, @period)
 end

@@ -17,13 +17,10 @@ defmodule Jishin.Application do
         plug: Jishin.Endpoint,
         options: [port: Application.get_env(:jishin, :port, 4000)]
       ),
-      Jishin.USGSClient.child_spec(),
       Jishin.Notifier,
       {Jishin.QuakeMonitor, Application.get_env(:jishin, :subscribers, [])}
     ]
 
-    # See https://hexdocs.pm/elixir/Supervisor.html
-    # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Jishin.Supervisor]
     Logger.info("Starting application ...")
     Supervisor.start_link(children, opts)

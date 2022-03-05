@@ -26,7 +26,6 @@ defmodule Jishin.MixProject do
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
       {:plug_cowboy, "~> 2.0"},
       {:jason, "~> 1.3"},
-      {:finch, "~> 0.10"},
       {:tesla, "~> 1.4"},
       {:hackney, "~> 1.17"},
       {:uuid, "~> 1.0"},

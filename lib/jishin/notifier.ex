@@ -1,6 +1,9 @@
 defmodule Jishin.Notifier do
   @moduledoc """
   Service to handle notifying users who have subscribed to earthquake notifications.
+
+  Notifications are per event, so if there are several events in a batch to a single subscription,
+  each event will be POSTed to the notification endpoint independently.
   """
 
   use GenServer
@@ -30,12 +33,25 @@ defmodule Jishin.Notifier do
 
   @impl GenServer
   def handle_cast({:notify, %{"endpoint" => endpoint} = subscription, events}, state) do
-    for event <- matching(subscription, events) do
-      post_event(endpoint, event)
-    end
+    matching(subscription, events)
+    |> Enum.each(fn event ->
+      Task.async(fn ->
+        post_event(endpoint, event)
+      end)
+    end)
 
     {:noreply, state}
   end
+
+  # Async notification task responses can be ignored for now.
+  @impl GenServer
+  def handle_info({_ref, :ok}, state), do: {:noreply, state}
+
+  # Async notification task responses can be ignored for now.
+  @impl GenServer
+  def handle_info({:DOWN, _ref, :process, _pid, :normal}, state), do: {:noreply, state}
+
+  ## Helper functions
 
   @doc """
   Get all events that match the subscription filters.

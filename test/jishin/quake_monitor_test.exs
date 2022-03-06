@@ -56,6 +56,27 @@ defmodule Jishin.QuakeMonitorTest do
     end
   end
 
+  describe "subscribe/1" do
+    test "valid subscribe responds in expected format" do
+      start = DateTime.utc_now() |> DateTime.to_unix(:millisecond)
+
+      subscription = %{
+        "endpoint" => "http://localhost",
+        "filters" => [%{"type" => "magnitude", "minimum" => 1.0}]
+      }
+
+      {:ok, response} = QuakeMonitor.subscribe(subscription)
+
+      assert Map.get(response, :id)
+      assert Map.get(response, :start) >= start
+      assert Map.get(response, :details) == subscription
+    end
+
+    test "invalid subscribe rejected" do
+      assert QuakeMonitor.subscribe(%{}) == {:error, "not a valid subscription request"}
+    end
+  end
+
   defp parse_file!(path) do
     path
     |> File.read!()

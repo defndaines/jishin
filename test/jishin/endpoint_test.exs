@@ -47,4 +47,12 @@ defmodule Jishin.EndpointTest do
 
     assert conn.status == 404
   end
+
+  test "test endpoint responds" do
+    conn =
+      conn(:post, "/test-notify", "")
+      |> Jishin.Endpoint.call(@opts)
+
+    assert conn.status == 200
+  end
 end

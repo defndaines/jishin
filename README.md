@@ -3,6 +3,9 @@
 An earthquake monitoring system, which queries the United States Geological
 Survey [USGS] for recent earthquakes and notifies subscribers of new activity.
 
+This was my first project using [Tesla](https://github.com/teamon/tesla), so
+includes both POST and GET calls, as well as mocking the calls for testing.
+
 ## Usage
 
 At this time, the project is only set up to run in development. You can use

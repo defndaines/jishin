@@ -14,7 +14,7 @@ defmodule Jishin.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger, :plug_cowboy],
+      extra_applications: [:logger, :plug_cowboy, :crypto],
       mod: {Jishin.Application, []}
     ]
   end
@@ -28,7 +28,6 @@ defmodule Jishin.MixProject do
       {:jason, "~> 1.3"},
       {:tesla, "~> 1.4"},
       {:hackney, "~> 1.17"},
-      {:uuid, "~> 1.0"},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:mix_test_watch, "~> 1.0", only: [:dev, :test], runtime: false}
     ]

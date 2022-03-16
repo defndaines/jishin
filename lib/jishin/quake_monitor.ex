@@ -17,7 +17,7 @@ defmodule Jishin.QuakeMonitor do
     case valid_subscription?(subscription) do
       true ->
         sub = %{
-          id: UUID.uuid4(),
+          id: random_id(),
           start: DateTime.utc_now() |> DateTime.to_unix(:millisecond),
           details: subscription
         }
@@ -99,4 +99,8 @@ defmodule Jishin.QuakeMonitor do
   defp valid_filter?(_), do: false
 
   defp schedule_check, do: Process.send_after(__MODULE__, :check, @period)
+
+  defp random_id do
+    :crypto.strong_rand_bytes(7) |> Base.url_encode64(padding: false)
+  end
 end

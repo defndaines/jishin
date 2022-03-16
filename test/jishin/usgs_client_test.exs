@@ -14,7 +14,7 @@ defmodule Jishin.USGSClientTest do
         |> File.read!()
         |> Jason.decode!()
 
-      mock(fn %{method: :get, url: endpoint} ->
+      mock(fn %{method: :get, url: ^endpoint} ->
         {:ok, %Tesla.Env{status: 200, body: response}}
       end)
 
@@ -26,7 +26,7 @@ defmodule Jishin.USGSClientTest do
 
     test "error is handled" do
       reason = "timeout?"
-      mock(fn %{method: :get, url: endpoint} -> {:error, reason} end)
+      mock(fn %{method: :get} -> {:error, reason} end)
       assert USGSClient.get_quakes() == {:error, reason}
     end
   end
